@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get Vaccination Status</title>
+    <style>
+      *{
+        background-color: black;
+       
+      }
+      h1{
+        color: antiquewhite;
+        position: relative;
+        left: 600px;
+        top:200px;
+      }
+      p{
+        color: red;
+        position: relative;
+        left: 600px;
+        top:200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Get Vaccination Status</h1>
+    {% if error %}
+      <p>{{ error }}</p>
+    {% else %}
+      <p>VACCINATION STATUS: {{ vaccination_status }}</p>
+    {% endif %}
+  </body>
+</html>

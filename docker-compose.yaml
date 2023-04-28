@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+    networks:
+      - mynet
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysecretpassword
+      - MYSQL_DATABASE=student_vaccination_db
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - mynet
+
+volumes:
+  dbdata:
+
+networks:
+  mynet:
